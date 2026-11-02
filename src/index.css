@@ -1,111 +1,187 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Paleta Pastel Suave - Naranja / Melocotón Marca (Sofás Valencia) */
+  --color-orange-50: #fff8f4;
+  --color-orange-100: #fdeee6;
+  --color-orange-200: #fbdbcd;
+  --color-orange-300: #f7bfab;
+  --color-orange-400: #f29f82;
+  --color-orange-500: #ea8560;
+  --color-orange-600: #d46f4b;
+  --color-orange-700: #b35535;
+  --color-orange-800: #90432a;
+  --color-orange-900: #763925;
+  --color-orange-950: #401b10;
+
+  /* Paleta Pastel Suave - Azul Cielo / Lavanda */
+  --color-blue-50: #f2f7fc;
+  --color-blue-100: #e3eefa;
+  --color-blue-200: #c9ddf6;
+  --color-blue-300: #a2c4ef;
+  --color-blue-400: #76a6e5;
+  --color-blue-500: #598cd7;
+  --color-blue-600: #426fbf;
+  --color-blue-700: #35579c;
+  --color-blue-800: #2d487f;
+  --color-blue-900: #273d67;
+  --color-blue-950: #182541;
+
+  /* Paleta Pastel Suave - Verde Salvia / Menta */
+  --color-emerald-50: #f2f8f4;
+  --color-emerald-100: #e0f1e5;
+  --color-emerald-200: #c1e4cb;
+  --color-emerald-300: #9acf9e;
+  --color-emerald-400: #6fb377;
+  --color-emerald-500: #4f9a5d;
+  --color-emerald-600: #3c7d49;
+  --color-emerald-700: #31643c;
+  --color-emerald-800: #2a5032;
+  --color-emerald-900: #23422a;
+  --color-emerald-950: #102416;
+
+  /* Paleta Pastel Suave - Rosa Empolvado / Coral Suave */
+  --color-red-50: #fdf4f4;
+  --color-red-100: #fce7e7;
+  --color-red-200: #f9d1d1;
+  --color-red-300: #f3b1b1;
+  --color-red-400: #e78888;
+  --color-red-500: #d66666;
+  --color-red-600: #be4e4e;
+  --color-red-700: #9e3e3e;
+  --color-red-800: #833636;
+  --color-red-900: #6d2f2f;
+  --color-red-950: #3b1414;
+
+  /* Paleta Pastel Suave - Ámbar / Miel Suave */
+  --color-amber-50: #fdfbf2;
+  --color-amber-100: #fcf4de;
+  --color-amber-200: #f8e6b7;
+  --color-amber-300: #f2d389;
+  --color-amber-400: #e8bb59;
+  --color-amber-500: #d6a133;
+  --color-amber-600: #ba8024;
+  --color-amber-700: #94611d;
+  --color-amber-800: #7a4e1d;
+  --color-amber-900: #65401c;
+  --color-amber-950: #3b210c;
+
+  /* Paleta Pastel Suave - Lavanda / Lila */
+  --color-purple-50: #f8f5fd;
+  --color-purple-100: #f0e9fa;
+  --color-purple-200: #e1d4f5;
+  --color-purple-300: #ccb6ee;
+  --color-purple-400: #b190e2;
+  --color-purple-500: #956fd0;
+  --color-purple-600: #7d54b8;
+  --color-purple-700: #67429b;
+  --color-purple-800: #54377c;
+  --color-purple-900: #463065;
+  --color-purple-950: #291a3e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
-  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+::selection {
+  background-color: var(--color-orange-100);
+  color: var(--color-orange-800);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+select {
+  border-radius: 0.75rem; /* rounded-xl */
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* Modo oscuro global para la web */
+html.dark {
+  color-scheme: dark;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+html.dark body {
+  background-color: #0f172a; /* slate-900 */
+  color: #f1f5f9;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Fondos y contenedores principales */
+html.dark .bg-white {
+  background-color: #1e293b; /* slate-800 */
+}
+
+html.dark .bg-gray-50 {
+  background-color: #0f172a; /* slate-900 */
+}
+
+html.dark .bg-gray-100 {
+  background-color: #1e293b; /* slate-800 */
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-100 {
+  border-color: #334155; /* slate-700 */
+}
+
+/* Tipografía en modo oscuro */
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #f8fafc;
+}
+
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #cbd5e1;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #94a3b8;
+}
+
+/* Inputs y Selects */
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+/* Hover de filas en tablas */
+html.dark tbody tr:hover {
+  background-color: #334155 !important;
+}
+
+/* Modales y cuadros de diálogo */
+html.dark section[role="dialog"],
+html.dark div[role="dialog"] {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+/* Superficie de firma digital: SIEMPRE fondo blanco impecable tanto en claro como en oscuro */
+.signature-pad-surface,
+html.dark .signature-pad-surface,
+.signature-pad-surface canvas,
+html.dark .signature-pad-surface canvas {
+  background-color: #ffffff !important;
 }
